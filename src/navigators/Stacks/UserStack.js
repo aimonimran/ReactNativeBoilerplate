@@ -1,25 +1,33 @@
-import {StyleSheet} from 'react-native';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {userRoutes} from '../../routes/routes';
+import {APP_ROUTES} from '../../routes/routes';
 import {useTheme} from 'styled-components';
+import BottomTabs from '../Tabs/BottomTabs';
 
 const Stack = createNativeStackNavigator();
 
-// const screenOptions = {
-//   headerShown: false,
-// };
+const appRoutes = [
+  {
+    name: APP_ROUTES.User.BottomTabs,
+    component: BottomTabs,
+    options: {headerShown: false},
+  },
+];
 
 function UserStack() {
   const theme = useTheme();
-  const {colors, fonts} = theme;
+  const {colors} = theme;
 
   return (
     <Stack.Navigator
       screenOptions={{
         headerTitleAlign: 'center',
+        headerStyle: {
+          backgroundColor: colors.danger,
+        },
+        headerTintColor: colors.white,
       }}>
-      {userRoutes.map(({name, component, options}) => (
+      {appRoutes.map(({name, component, options}) => (
         <Stack.Screen
           key={name}
           name={name}
@@ -30,7 +38,5 @@ function UserStack() {
     </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default UserStack;

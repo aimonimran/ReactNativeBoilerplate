@@ -1,31 +1,12 @@
-import DashboardScreen from '../screens/DashboardScreen';
-import LoginScreen from '../screens/LoginScreen';
-import MessagesScreen from '../screens/MessagesScreen';
-import RegisterScreen from '../screens/RegisterScreen';
+export const APP_ROUTES = {
+  Auth: {
+    Login: 'Login',
+    Register: 'Register',
+  },
 
-export const authRoutes = [
-  {
-    name: 'Register',
-    component: RegisterScreen,
-    options: {headerShown: false},
+  User: {
+    BottomTabs: 'BottomTabs',
+    Home: 'Home',
+    Messages: 'Messages',
   },
-  {
-    name: 'Login',
-    component: LoginScreen,
-    options: {headerShown: false},
-  },
-];
-
-export const userRoutes = [
-  {
-    name: 'Dashboard',
-    component: DashboardScreen,
-    options: {headerShown: true},
-  },
-  {
-    name: 'Messages',
-    component: MessagesScreen,
-    options: {headerShown: true},
-  },
-  // other screens
-];
+};

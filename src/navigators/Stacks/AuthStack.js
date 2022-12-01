@@ -1,17 +1,27 @@
-import {StyleSheet} from 'react-native';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {authRoutes} from '../../routes/routes';
+import {APP_ROUTES} from '../../routes/routes';
+import LoginScreen from '../../screens/LoginScreen';
+import RegisterScreen from '../../screens/RegisterScreen';
 
 const Stack = createNativeStackNavigator();
 
-const screenOptions = {
-  headerShown: false,
-};
+const authRoutes = [
+  {
+    name: APP_ROUTES.Auth.Login,
+    component: LoginScreen,
+    options: {headerShown: false},
+  },
+  {
+    name: APP_ROUTES.Auth.Register,
+    component: RegisterScreen,
+    options: {headerShown: false},
+  },
+];
 
 function AuthStack() {
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
+    <Stack.Navigator>
       {authRoutes.map(({name, component, options}) => (
         <Stack.Screen
           key={name}
@@ -23,7 +33,5 @@ function AuthStack() {
     </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default AuthStack;
