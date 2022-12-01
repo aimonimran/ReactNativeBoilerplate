@@ -1,17 +1,19 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import UserStack from '../navigators/Stacks/UserStack';
 import AuthStack from '../navigators/Stacks/AuthStack';
 
+const goToUserStack = true;
+
 const Router = () => {
   return (
-    <NavigationContainer>
-      {true ? <UserStack /> : <AuthStack />}
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        {goToUserStack ? <UserStack /> : <AuthStack />}
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default Router;
