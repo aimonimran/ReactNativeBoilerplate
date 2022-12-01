@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {APP_ROUTES} from '../../routes/routes';
+import {APP_ROUTES} from '../../constants/Routes/routes';
 import {useTheme} from 'styled-components';
 import BottomTabs from '../Tabs/BottomTabs';
 

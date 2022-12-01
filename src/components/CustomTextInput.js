@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, View as RNView} from 'react-native';
+import {TextInput as RNTextInput, View as RNView} from 'react-native';
 import styled, {useTheme} from 'styled-components';
 import propTypes from 'prop-types';
 
@@ -10,29 +10,31 @@ const View = styled(RNView)`
   margin-vertical: 10px;
 `;
 
-const CustomTextInput = ({input, handleInput, placeholder, keyboardType}) => {
+const TextInput = styled(RNTextInput)`
+  color: ${({color}) => color};
+`;
+
+const CustomTextInput = ({input, handleInput, ...rest}) => {
   const theme = useTheme();
-  const {colors, fonts} = theme;
+  const {colors} = theme;
 
   return (
     <View containerTheme={{bgColor: colors.light}}>
       <TextInput
+        color={colors.black}
         fontSize={17}
         value={input}
         onChangeText={text => handleInput(text)}
-        placeholder={placeholder}
         placeholderTextColor={colors.medium}
-        keyboardType={keyboardType}
+        {...rest}
       />
     </View>
   );
 };
 
 CustomTextInput.propTypes = {
-  input: propTypes.string.isRequired,
-  handleInput: propTypes.func.isRequired,
-  keyboardType: propTypes.string,
-  placeholder: propTypes.string.isRequired,
+  input: propTypes.string,
+  handleInput: propTypes.func,
 };
 
 export default CustomTextInput;

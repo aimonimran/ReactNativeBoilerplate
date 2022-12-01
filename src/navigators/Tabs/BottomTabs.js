@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useTheme} from 'styled-components';
-import {APP_ROUTES} from '../../routes/routes';
+import {APP_ROUTES} from '../../constants/Routes/routes';
 import MessagesScreen from '../../screens/MessagesScreen';
 import HomeScreen from '../../screens/HomeScreen';
 

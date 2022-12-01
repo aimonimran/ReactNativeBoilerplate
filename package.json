@@ -16,6 +16,7 @@
     "@react-navigation/bottom-tabs": "^6.4.3",
     "@react-navigation/native": "^6.0.14",
     "@react-navigation/native-stack": "^6.9.2",
+    "formik": "^2.2.9",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-paper": "5.0.0-rc.10",
@@ -23,7 +24,8 @@
     "react-native-screens": "^3.18.2",
     "react-native-splash-screen": "^3.3.0",
     "react-native-vector-icons": "^9.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

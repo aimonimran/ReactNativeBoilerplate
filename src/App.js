@@ -1,7 +1,7 @@
 import {ThemeProvider} from 'styled-components';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import Router from './routes/Router';
+import Router from './constants/Routes/Router';
 import theme from './styles';
 
 const App = () => {
