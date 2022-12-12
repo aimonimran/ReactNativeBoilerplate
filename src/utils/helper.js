@@ -76,13 +76,14 @@ export const validateImage = file => {
  * @param {AbortController|AbortController[]} controller
  */
 
-// export const abortController = controller => {
-//   if (controller instanceof AbortController) {
-//     if (!controller.signal.aborted) controller.abort();
-//     return;
-//   }
+export const abortController = controller => {
+  // eslint-disable-next-line no-undef
+  if (controller instanceof AbortController) {
+    if (!controller.signal.aborted) controller.abort();
+    return;
+  }
 
-//   controller.forEach(_controller => {
-//     if (!_controller.signal.aborted) _controller.abort();
-//   });
-// };
+  controller.forEach(_controller => {
+    if (!_controller.signal.aborted) _controller.abort();
+  });
+};

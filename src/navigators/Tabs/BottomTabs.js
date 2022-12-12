@@ -4,19 +4,24 @@ import {useTheme} from 'styled-components';
 import {APP_ROUTES} from '../../constants/Routes/routes';
 import MessagesScreen from '../../screens/MessagesScreen';
 import HomeScreen from '../../screens/HomeScreen';
+import '../types';
 
 const Tab = createBottomTabNavigator();
+
+/**
+ * @type {Route[]} tabRoutes
+ */
 
 const tabRoutes = [
   {
     name: APP_ROUTES.User.Home,
     component: HomeScreen,
-    options: {title: 'Home'},
+    options: {headerShown: false},
   },
   {
     name: APP_ROUTES.User.Messages,
     component: MessagesScreen,
-    options: {title: 'Messages'},
+    options: {headerShown: false},
   },
 ];
 
@@ -26,14 +31,14 @@ const BottomTabs = () => {
 
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeBackgroundColor: colors.danger,
-        activeTintColor: colors.white,
-        inactiveBackgroundColor: '#eee',
-        inactiveTintColor: colors.black,
+      screenOptions={{
+        tabBarActiveBackgroundColor: colors.danger,
+        tabBarActiveTintColor: colors.white,
+        tabBarInactiveBackgroundColor: '#eee',
+        tabBarInactiveTintColor: colors.black,
       }}>
-      {tabRoutes.map(({name, component}) => (
-        <Tab.Screen key={name} name={name} component={component} />
+      {tabRoutes.map(props => (
+        <Tab.Screen key={props.name} {...props} />
       ))}
     </Tab.Navigator>
   );

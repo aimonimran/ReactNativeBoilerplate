@@ -1,14 +1,12 @@
 import React from 'react';
 import {Formik} from 'formik';
-import {loginInitialValues} from '../../constants/Formik/Initials';
-import {loginValidationSchema} from '../../constants/Formik/Schemas';
 
-const CustomForm = ({onSubmit, children}) => {
+const CustomForm = ({initialValues, validationSchema, onSubmit, children}) => {
   return (
     <Formik
-      initialValues={loginInitialValues}
-      onSubmit={onSubmit}
-      validationSchema={loginValidationSchema}>
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}>
       {() => <>{children}</>}
     </Formik>
   );

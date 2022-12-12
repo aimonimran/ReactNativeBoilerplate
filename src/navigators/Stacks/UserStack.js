@@ -3,9 +3,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {APP_ROUTES} from '../../constants/Routes/routes';
 import {useTheme} from 'styled-components';
 import BottomTabs from '../Tabs/BottomTabs';
+import '../types';
 
 const Stack = createNativeStackNavigator();
 
+/**
+ * @type {Route[]} appRoutes
+ */
 const appRoutes = [
   {
     name: APP_ROUTES.User.BottomTabs,
@@ -27,13 +31,8 @@ function UserStack() {
         },
         headerTintColor: colors.white,
       }}>
-      {appRoutes.map(({name, component, options}) => (
-        <Stack.Screen
-          key={name}
-          name={name}
-          component={component}
-          options={options}
-        />
+      {appRoutes.map(props => (
+        <Stack.Screen key={props.name} {...props} />
       ))}
     </Stack.Navigator>
   );

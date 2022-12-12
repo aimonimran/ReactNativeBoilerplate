@@ -3,27 +3,26 @@ import {
   Button,
   FlatList,
   Modal,
-  Text,
   TouchableWithoutFeedback,
   View as RNView,
 } from 'react-native';
-import styled, {useTheme} from 'styled-components';
-import propTypes from 'prop-types';
+import styled from 'styled-components';
 import PickerItem from './PickerItem';
 import CustomText from './CustomText';
 
 const View = styled(RNView)`
-  background-color: ${({containerTheme}) => containerTheme.bgColor};
+  background-color: ${({theme}) => theme.colors.light};
   border-radius: 25px;
   width: 100%;
   margin-vertical: 10px;
   padding: 15px;
 `;
 
-const Picker = ({selectedItem, onSelectItem, items, placeholder}) => {
-  const theme = useTheme();
-  const {colors, fonts} = theme;
+const Text = styled(CustomText)`
+  color: ${({theme}) => theme.colors.medium};
+`;
 
+const Picker = ({selectedItem, onSelectItem, items, placeholder}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handlePickerItem = item => {
@@ -34,10 +33,8 @@ const Picker = ({selectedItem, onSelectItem, items, placeholder}) => {
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View containerTheme={{bgColor: colors.light}}>
-          <CustomText style={{color: colors.medium}}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </CustomText>
+        <View>
+          <Text>{selectedItem ? selectedItem.label : placeholder}</Text>
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
@@ -55,13 +52,6 @@ const Picker = ({selectedItem, onSelectItem, items, placeholder}) => {
       </Modal>
     </>
   );
-};
-
-Picker.propTypes = {
-  input: propTypes.string,
-  handleInput: propTypes.func,
-  keyboardType: propTypes.string,
-  placeholder: propTypes.string.isRequired,
 };
 
 export default Picker;

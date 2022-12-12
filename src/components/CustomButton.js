@@ -3,11 +3,11 @@ import {
   TouchableOpacity as RNTouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import styled, {useTheme} from 'styled-components';
+import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 const TouchableOpacity = styled(RNTouchableOpacity)`
-  background-color: ${({buttonTheme}) => buttonTheme.bgColor};
+  background-color: ${({theme}) => theme.colors.primary};
   border-radius: 25px;
   padding: 15px;
   justify-content: center;
@@ -17,26 +17,16 @@ const TouchableOpacity = styled(RNTouchableOpacity)`
 `;
 
 const Text = styled(RNText)`
-  font-size: ${({textTheme}) => textTheme.fontSize};
-  color: ${({textTheme}) => textTheme.color};
-  font-weight: ${({textTheme}) => textTheme.fontWeight};
-  text-transform: uppercase;
+  font-size: ${({theme}) => theme.fonts.fontSize.sm}px;
+  color: ${({theme}) => theme.colors.white};
+  font-weight: ${({theme}) => theme.fonts.fontWeight.bold};
+  text-transform: capitalize;
 `;
 
 const CustomButton = ({title, onPress}) => {
-  const theme = useTheme();
-  const {colors, fonts} = theme;
-
   return (
-    <TouchableOpacity buttonTheme={{bgColor: colors.primary}} onPress={onPress}>
-      <Text
-        textTheme={{
-          color: colors.white,
-          fontSize: fonts.fontSize.sm,
-          fontWeight: fonts.fontWeight.bold,
-        }}>
-        {title}
-      </Text>
+    <TouchableOpacity onPress={onPress}>
+      <Text>{title}</Text>
     </TouchableOpacity>
   );
 };

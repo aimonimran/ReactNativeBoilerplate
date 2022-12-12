@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import CustomText from '../CustomText';
 
 const Error = styled(CustomText)`
-  color: red;
+  color: ${({theme}) => theme.colors.danger};
+  font-size: ${({theme}) => theme.fonts.fontSize.xs}px;
+  margin-top: -8px;
 `;
 
 const ErrorMessage = ({error}) => {

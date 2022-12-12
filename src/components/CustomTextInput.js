@@ -4,14 +4,14 @@ import styled, {useTheme} from 'styled-components';
 import propTypes from 'prop-types';
 
 const View = styled(RNView)`
-  background-color: ${({containerTheme}) => containerTheme.bgColor};
+  background-color: ${({theme}) => theme.colors.light};
   border-radius: 25px;
   width: 100%;
   margin-vertical: 10px;
 `;
 
 const TextInput = styled(RNTextInput)`
-  color: ${({color}) => color};
+  color: ${({theme}) => theme.colors.black};
 `;
 
 const CustomTextInput = ({input, handleInput, ...rest}) => {
@@ -19,10 +19,9 @@ const CustomTextInput = ({input, handleInput, ...rest}) => {
   const {colors} = theme;
 
   return (
-    <View containerTheme={{bgColor: colors.light}}>
+    <View>
       <TextInput
-        color={colors.black}
-        fontSize={17}
+        fontSize={15}
         value={input}
         onChangeText={text => handleInput(text)}
         placeholderTextColor={colors.medium}
