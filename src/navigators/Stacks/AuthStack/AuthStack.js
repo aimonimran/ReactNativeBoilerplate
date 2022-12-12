@@ -11,11 +11,11 @@ const Stack = createNativeStackNavigator();
  * @type {Route[]} authRoutes
  */
 const authRoutes = [
-  {
-    name: APP_ROUTES.Auth.Login,
-    component: LoginScreen,
-    options: {headerShown: false},
-  },
+  // {
+  //   name: APP_ROUTES.Auth.Login,
+  //   component: LoginScreen,
+  //   options: {headerShown: false},
+  // },
   {
     name: APP_ROUTES.Auth.Signup,
     component: SignupScreen,

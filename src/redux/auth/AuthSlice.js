@@ -1,12 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {helperExtraReducers} from '../helper.redux';
-import {initialState} from './authState';
+import {helperExtraReducers} from '../HelperRedux';
+import {initialState} from './AuthState';
 import {
   asyncLoggedInAction,
   asyncLoginAction,
   asyncSignupAction,
   authReducer,
-} from './authReducer';
+} from './AuthReducer';
 
 export const authSlice = createSlice({
   name: 'auth',

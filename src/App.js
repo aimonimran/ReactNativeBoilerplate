@@ -1,4 +1,6 @@
 import {ThemeProvider} from 'styled-components';
+import {Provider} from 'react-redux';
+import {store} from './redux/Store';
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import Router from './constants/Routes/Router';
@@ -10,9 +12,11 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Router />
+      </ThemeProvider>
+    </Provider>
   );
 };
 

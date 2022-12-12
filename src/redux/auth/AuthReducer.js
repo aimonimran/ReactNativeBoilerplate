@@ -1,7 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import authService from '../../services/AuthService';
 import {token} from '../../utils/storage';
-import {authActions} from './authSlice';
+import {authActions} from './AuthSlice';
 
 export const authReducer = {
   onAuthSuccess: (state, action) => {

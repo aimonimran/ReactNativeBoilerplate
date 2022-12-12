@@ -1,5 +1,6 @@
 import {TouchableOpacity, View as RNView} from 'react-native';
 import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components';
 import {APP_ROUTES} from '../../constants/Routes/routes';
@@ -9,6 +10,8 @@ import {CustomText} from '../../components/CustomText';
 import {SubmitButton} from '../../components/forms/SubmitButton';
 import {CustomFormField} from '../../components/forms/CustomFormField';
 import {CustomForm} from '../../components/forms/CustomForm';
+import {omitProps} from '../../utils/helper';
+import {authActions} from '../../redux/auth/AuthSlice';
 
 const View = styled(RNView)`
   padding: 10px;
@@ -38,10 +41,13 @@ const Button = styled(CustomText)`
 `;
 
 const SignupForm = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
+  const {loadingLogin, loginError} = useSelector(store => store.auth);
 
   const onSubmit = values => {
-    console.log(values);
+    const payload = omitProps(values, ['confirmPassword']);
+    dispatch(authActions.asyncSignupAction(payload));
   };
 
   return (

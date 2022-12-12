@@ -1,1 +1,1 @@
-export {default as token} from './token.storage';
+export {default as token} from './TokenStorage';
