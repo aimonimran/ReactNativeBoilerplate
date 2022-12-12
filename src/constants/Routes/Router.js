@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import UserStack from '../../navigators/Stacks/UserStack';
-import AuthStack from '../../navigators/Stacks/AuthStack';
+import {UserStack} from '../../navigators/Stacks/UserStack';
+import {AuthStack} from '../../navigators/Stacks/AuthStack';
 
 const goToUserStack = false;
 
