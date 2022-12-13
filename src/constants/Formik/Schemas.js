@@ -31,6 +31,6 @@ export const signupValidationSchema = Yup.object({
   cell: Yup.string()
     .matches(regex.cellRegex, messages.valid('Phone number'))
     .required(messages.required('Phone number')),
-  // gender: Yup.string().required(messages.required('Gender')),
+  gender: Yup.string().required(messages.required('Gender')),
   // avatar: Yup.string().required(messages.required('File')),
 });

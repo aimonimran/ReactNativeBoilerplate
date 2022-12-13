@@ -48,7 +48,6 @@ export const asyncSignupAction = createAsyncThunk(
   'auth/signup',
   async (values, thunkApi) => {
     const result = await authService.signup(values);
-
     if (result.success)
       thunkApi.dispatch(authActions.onLoginSuccess(result.data));
     else thunkApi.dispatch(authActions.onLoginError(result.message));

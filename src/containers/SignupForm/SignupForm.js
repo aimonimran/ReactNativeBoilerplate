@@ -1,8 +1,9 @@
 import {TouchableOpacity, View as RNView} from 'react-native';
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
 import styled from 'styled-components';
+import {useDispatch} from 'react-redux';
+import {authActions} from '../../redux/auth/AuthSlice';
+import {useNavigation} from '@react-navigation/native';
 import {APP_ROUTES} from '../../constants/Routes/routes';
 import {signupInitialValues} from '../../constants/Formik/Initials';
 import {signupValidationSchema} from '../../constants/Formik/Schemas';
@@ -10,8 +11,8 @@ import {CustomText} from '../../components/CustomText';
 import {SubmitButton} from '../../components/forms/SubmitButton';
 import {CustomFormField} from '../../components/forms/CustomFormField';
 import {CustomForm} from '../../components/forms/CustomForm';
+import {Radio} from '../../components/Radio';
 import {omitProps} from '../../utils/helper';
-import {authActions} from '../../redux/auth/AuthSlice';
 
 const View = styled(RNView)`
   padding: 10px;
@@ -43,7 +44,6 @@ const Button = styled(CustomText)`
 const SignupForm = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const {loadingLogin, loginError} = useSelector(store => store.auth);
 
   const onSubmit = values => {
     const payload = omitProps(values, ['confirmPassword']);
@@ -105,14 +105,17 @@ const SignupForm = () => {
           placeholder="Phone Number"
           textContentType="telephoneNumber"
         />
-        {/* {['Male', 'Female'].map((gender, i) => (
-          <Radio
-            key={`gender-${gender}-${i}`}
-            title={gender}
-            checked={value.gender === gender}
-            setter={() => formik.setFieldValue(gender)}
-          />
-        ))} */}
+        {/* {['MALE', 'FEMALE', 'PREFER_NOT_TO_SAY'].map((gender, i) => ( */}
+        <Radio
+          data={['MALE', 'FEMALE', 'PREFER_NOT_TO_SAY']}
+          name="gender"
+          // key={`gender-${gender}-${i}`}
+          // title={gender}
+          // name="gender"
+          // checked={value.gender === gender}
+          // setter={() => formik.setFieldValue(gender)}
+        />
+        {/* ))} */}
         <SubmitButton title="Signup" />
         <Redirect>
           <CustomText>Need an account? </CustomText>

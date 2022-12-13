@@ -1,6 +1,6 @@
 export const loginInitialValues = {
-  username: '',
-  password: '',
+  username: 'shahanahmed86',
+  password: '123Abc456',
 };
 
 export const signupInitialValues = {
@@ -10,6 +10,6 @@ export const signupInitialValues = {
   email: '',
   fullName: '',
   cell: '',
-  // gender: '',
+  gender: '',
   // avatar: '',
 };

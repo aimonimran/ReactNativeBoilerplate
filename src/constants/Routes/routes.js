@@ -8,5 +8,6 @@ export const APP_ROUTES = {
     BottomTabs: 'BottomTabs',
     Home: 'Home',
     Messages: 'Messages',
+    Profile: 'Profile',
   },
 };

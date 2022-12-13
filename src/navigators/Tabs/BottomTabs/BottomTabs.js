@@ -5,6 +5,7 @@ import {APP_ROUTES} from '../../../constants/Routes/routes';
 import {MessagesScreen} from '../../../screens/MessagesScreen';
 import {HomeScreen} from '../../../screens/HomeScreen';
 import '../../types';
+import {ProfileScreen} from '../../../screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +22,11 @@ const tabRoutes = [
   {
     name: APP_ROUTES.User.Messages,
     component: MessagesScreen,
+    options: {headerShown: false},
+  },
+  {
+    name: APP_ROUTES.User.Profile,
+    component: ProfileScreen,
     options: {headerShown: false},
   },
 ];

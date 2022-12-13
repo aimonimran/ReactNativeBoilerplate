@@ -1,6 +1,6 @@
 import {TouchableOpacity, View as RNView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {authActions} from '../../redux/auth/AuthSlice';
 import React from 'react';
 import styled from 'styled-components';
@@ -37,7 +37,6 @@ const Button = styled(CustomText)`
 const LoginForm = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  // const {loadingLogin, loginError} = useSelector(store => store.auth);
 
   const onSubmit = values => dispatch(authActions.asyncLoginAction(values));
 

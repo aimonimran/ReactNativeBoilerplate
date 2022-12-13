@@ -1,10 +1,10 @@
 import {token} from '../utils/storage';
-import {BASE_URL} from '../utils/configs';
+import {host} from '../utils/configs';
 import axios from 'axios';
 import {abortController} from '../utils/helper';
 
 class Network {
-  _baseUrl = `${BASE_URL}/api`;
+  _baseUrl = `${host}/api`;
 
   includeHeaders(options, includeToken) {
     const headers = {};

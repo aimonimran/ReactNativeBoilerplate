@@ -1,4 +1,5 @@
-import React from 'react';
+import {useFormikContext} from 'formik';
+import React, {useState} from 'react';
 import {
   Text as RNText,
   TouchableOpacity as RNTouchableOpacity,
@@ -42,15 +43,25 @@ const Text = styled(RNText)`
   color: ${({theme}) => theme.colors.black};
 `;
 
-function Radio({title, checked, setter}) {
-  return (
-    <TouchableOpacity onPress={setter}>
-      <View>
-        <OuterBox>{checked ? <CheckMark /> : null}</OuterBox>
-        <Text>{title}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+function Radio({data, name}) {
+  const {setFieldValue} = useFormikContext();
+  const [userOption, setUserOption] = useState(null);
+
+  const handleRadio = item => {
+    setUserOption(item);
+    setFieldValue(name, userOption);
+  };
+
+  return data.map(item => {
+    return (
+      <TouchableOpacity key={item} onPress={() => handleRadio(item)}>
+        <View>
+          <OuterBox>{item === userOption ? <CheckMark /> : null}</OuterBox>
+          <Text>{item}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  });
 }
 
 export default Radio;
